@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uncle B & Auntie-E and J-Dog - Kids Music Fun!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Arial Rounded MT Bold', cursive, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header img {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .tagline {
+            color: #fff;
+            font-size: 1.3rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        nav {
+            background: #fff;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #667eea;
+            font-size: 1.2rem;
+            margin: 0 1.5rem;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #f5576c;
+        }
+
+        .song-list {
+            margin-top: 2rem;
+        }
+
+        .song-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .song-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .song-info {
+            flex-grow: 1;
+        }
+
+        .song-title {
+            font-size: 1.1rem;
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+        }
+
+        audio {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .album-section {
+            margin-bottom: 3rem;
+        }
+
+        .album-header {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+        }
+
+        .album-header h3 {
+            color: #764ba2;
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #667eea;
+            font-size: 1.2rem;
+            margin: 0 1.5rem;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #f5576c;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .albums {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .album-card {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .album-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .album-image {
+            width: 200px;
+            height: 200px;
+            background: #ddd;
+            border-radius: 10px;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            border: 4px solid #fff;
+        }
+
+        .album-title {
+            font-size: 1.5rem;
+            color: #764ba2;
+            margin-bottom: 0.5rem;
+        }
+
+        .downloads {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .download-card {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .download-card:hover {
+            transform: scale(1.05);
+        }
+
+        .download-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .download-card h3 {
+            color: #764ba2;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+            @media (max-width: 768px) {
+            h2 {
+                font-size: 2rem;
+            }
+            
+            nav a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Uncle B & Auntie-E and J-Dog" style="max-width: 600px; width: 90%; height: auto; margin-bottom: 1rem;">
+        <p class="tagline">Making Music Fun for Kids!</p>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#albums">Albums</a>
+        <a href="#listen">Listen</a>
+        <a href="#downloads">Downloads</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+        <section id="about">
+            <h2>Welcome to Our Musical World!</h2>
+            <div style="text-align: center; margin: 2rem 0;">
+                <img src="characters.png" alt="Uncle B, Auntie-E, and J-Dog" style="max-width: 800px; width: 100%; height: auto; border-radius: 15px;">
+            </div>
+            <p class="about-text">
+                Hi there! We're Uncle B, Auntie-E, and J-Dog, and we love making music that gets kids singing, dancing, and having fun! 
+                Check out our albums and download free lyrics 
+                and coloring pages below!
+            </p>
+        </section>
+
+        <section id="albums">
+            <h2>Our Albums</h2>
+            <div class="albums">
+                <div class="album-card">
+                    <div class="album-image">🎸</div>
+                    <div class="album-title">Uncle-B & Auntie-E & J-Dog</div>
+                    <p>Our debut album full of fun songs for everyone!</p>
+                </div>
+                <div class="album-card">
+                    <div class="album-image">🎹</div>
+                    <div class="album-title">All Aboard the Zoo Train</div>
+                    <p>More new songs and old favorites every kid should know!</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="listen">
+            <h2>Listen to Our Songs!</h2>
+            
+            <div class="album-section">
+                <div class="album-header">
+                    <h3>🎸 Uncle-B & Auntie-E & J-Dog</h3>
+                </div>
+                <div class="song-list">
+                    <div class="song-item">
+                        <div class="song-number">1</div>
+                        <div class="song-info">
+                            <div class="song-title">Uncle-B + Auntie-E + J-Dog</div>
+                            <audio controls>
+                                <source src="album1/song1.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">2</div>
+                        <div class="song-info">
+                            <div class="song-title">Peanut Butter Attack</div>
+                            <audio controls>
+                                <source src="album1/song2.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">3</div>
+                        <div class="song-info">
+                            <div class="song-title">The Seatbelt Song</div>
+                            <audio controls>
+                                <source src="album1/song3.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">4</div>
+                        <div class="song-info">
+                            <div class="song-title">Fruits & Vegetables</div>
+                            <audio controls>
+                                <source src="album1/song4.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">5</div>
+                        <div class="song-info">
+                            <div class="song-title">The Fox</div>
+                            <audio controls>
+                                <source src="album1/song5.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">6</div>
+                        <div class="song-info">
+                            <div class="song-title">The Alphabet Song</div>
+                            <audio controls>
+                                <source src="album1/song6.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">7</div>
+                        <div class="song-info">
+                            <div class="song-title">Froggy Went a Courtin'</div>
+                            <audio controls>
+                                <source src="album1/song7.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">8</div>
+                        <div class="song-info">
+                            <div class="song-title">Don Gato</div>
+                            <audio controls>
+                                <source src="album1/song8.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">9</div>
+                        <div class="song-info">
+                            <div class="song-title">I Bought Me a Cat</div>
+                            <audio controls>
+                                <source src="album1/song9.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">10</div>
+                        <div class="song-info">
+                            <div class="song-title">The Toothbrush Song</div>
+                            <audio controls>
+                                <source src="album1/song10.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">11</div>
+                        <div class="song-info">
+                            <div class="song-title">The Marching Song</div>
+                            <audio controls>
+                                <source src="album1/song11.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">12</div>
+                        <div class="song-info">
+                            <div class="song-title">The Goodnight Song</div>
+                            <audio controls>
+                                <source src="album1/song12.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="album-section">
+                <div class="album-header">
+                    <h3>🚂 All Aboard the Zoo Train</h3>
+                </div>
+                <div class="song-list">
+                    <div class="song-item">
+                        <div class="song-number">1</div>
+                        <div class="song-info">
+                            <div class="song-title">Zoo Train</div>
+                            <audio controls>
+                                <source src="album2/song1.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">2</div>
+                        <div class="song-info">
+                            <div class="song-title">Get Along Home J-Dog</div>
+                            <audio controls>
+                                <source src="album2/song2.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">3</div>
+                        <div class="song-info">
+                            <div class="song-title">Noodles</div>
+                            <audio controls>
+                                <source src="album2/song3.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">4</div>
+                        <div class="song-info">
+                            <div class="song-title">Crawdad Song</div>
+                            <audio controls>
+                                <source src="album2/song4.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">5</div>
+                        <div class="song-info">
+                            <div class="song-title">John Henry</div>
+                            <audio controls>
+                                <source src="album2/song5.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">6</div>
+                        <div class="song-info">
+                            <div class="song-title">Camptown Races</div>
+                            <audio controls>
+                                <source src="album2/song6.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">7</div>
+                        <div class="song-info">
+                            <div class="song-title">Old Joe Clark</div>
+                            <audio controls>
+                                <source src="album2/song7.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">8</div>
+                        <div class="song-info">
+                            <div class="song-title">My Home's in Montana</div>
+                            <audio controls>
+                                <source src="album2/song8.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">9</div>
+                        <div class="song-info">
+                            <div class="song-title">O Susanna</div>
+                            <audio controls>
+                                <source src="album2/song9.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">10</div>
+                        <div class="song-info">
+                            <div class="song-title">Land of the Silver Birch/Canoe Song</div>
+                            <audio controls>
+                                <source src="album2/song10.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">11</div>
+                        <div class="song-info">
+                            <div class="song-title">Save Electricity</div>
+                            <audio controls>
+                                <source src="album2/song11.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">12</div>
+                        <div class="song-info">
+                            <div class="song-title">Home on the Range</div>
+                            <audio controls>
+                                <source src="album2/song12.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">13</div>
+                        <div class="song-info">
+                            <div class="song-title">Polly Wolly Doodle</div>
+                            <audio controls>
+                                <source src="album2/song13.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">14</div>
+                        <div class="song-info">
+                            <div class="song-title">Beddy-Bye Bose</div>
+                            <audio controls>
+                                <source src="album2/song14.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="song-item">
+                        <div class="song-number">15</div>
+                        <div class="song-info">
+                            <div class="song-title">Into the Woods</div>
+                            <audio controls>
+                                <source src="album2/song15.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="downloads">
+            <h2>Free Downloads for Kids!</h2>
+            <div class="downloads">
+                <div class="download-card">
+                    <div class="download-icon">📝🎨</div>
+                    <h3>Uncle-B & Auntie-E & J-Dog<br>Lyrics & Coloring Pages</h3>
+                    <p>Print out lyrics to sing along AND fun coloring pages from our first album!</p>
+                    <a href="uncle-b-album-lyrics-and-coloring.pdf" class="btn" download>Download PDF</a>
+                </div>
+                <div class="download-card">
+                    <div class="download-icon">📝🎨</div>
+                    <h3>All Aboard the Zoo Train<br>Lyrics & Coloring Pages</h3>
+                    <p>Print out lyrics to sing along AND fun coloring pages from the Zoo Train adventure!</p>
+                    <a href="zoo-train-lyrics-and-coloring.pdf" class="btn" download>Download PDF</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Get in Touch!</h2>
+            <p class="about-text">
+                Want to book us for a show or just say hello? We'd love to hear from you!<br>
+                Email us at: <strong>hello@unclebmusic.com</strong>
+            </p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Uncle B & Auntie-E and J-Dog. All rights reserved.</p>
+        <p>Making kids smile, one song at a time! 🎵</p>
+    </footer>
+</body>
+</html>
