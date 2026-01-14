@@ -12,16 +12,55 @@
         }
 
         body {
-            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Arial Rounded MT Bold', cursive, sans-serif;
+            font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', 'Arial', sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: #333;
         }
 
         header {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            background: white;
             padding: 2rem;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, #ff6b9d 15px, transparent 15px),
+                radial-gradient(circle at 60% 70%, #feca57 20px, transparent 20px),
+                radial-gradient(circle at 80% 90%, #48dbfb 18px, transparent 18px),
+                radial-gradient(circle at 30% 60%, #ff9ff3 12px, transparent 12px),
+                radial-gradient(circle at 70% 50%, #54a0ff 16px, transparent 16px),
+                radial-gradient(circle at 40% 90%, #5f27cd 14px, transparent 14px),
+                radial-gradient(circle at 90% 70%, #00d2d3 22px, transparent 22px),
+                radial-gradient(circle at 10% 50%, #ff6348 17px, transparent 17px),
+                radial-gradient(circle at 50% 85%, #1dd1a1 13px, transparent 13px),
+                radial-gradient(circle at 85% 55%, #feca57 19px, transparent 19px);
+            background-size: 100% 100%;
+            animation: bubbleRise 25s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes bubbleRise {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-50%);
+            }
+        }
+
+        header * {
+            position: relative;
+            z-index: 1;
         }
 
         header img {
@@ -34,9 +73,9 @@
         }
 
         .tagline {
-            color: #fff;
+            color: #333;
             font-size: 1.3rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            font-weight: bold;
         }
 
         nav {
@@ -182,8 +221,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
             border: 4px solid #fff;
+            overflow: hidden;
         }
 
         .album-title {
@@ -292,7 +331,7 @@
             </div>
             <p class="about-text">
                 Hi there! We're Uncle B, Auntie-E, and J-Dog, and we love making music that gets kids singing, dancing, and having fun! 
-                Check out our albums and download free lyrics 
+                Our songs are all about friendship, learning, and having a great time. Check out our albums and download free lyrics 
                 and coloring pages below!
             </p>
         </section>
@@ -302,17 +341,17 @@
             <div class="albums">
                 <div class="album-card">
                     <div class="album-image">
-    <img src="album1-cover.jpg" alt="Album Cover" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
-</div>
+                        <img src="album1-cover.jpg" alt="Uncle-B & Auntie-E & J-Dog Album Cover" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                    </div>
                     <div class="album-title">Uncle-B & Auntie-E & J-Dog</div>
                     <p>Our debut album full of fun songs for everyone!</p>
                 </div>
                 <div class="album-card">
                     <div class="album-image">
-    <img src="album2-cover.jpg" alt="Album Cover" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
-</div>
+                        <img src="album2-cover.jpg" alt="All Aboard the Zoo Train Album Cover" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                    </div>
                     <div class="album-title">All Aboard the Zoo Train</div>
-                    <p>More new songs and old favorites every kid should know!</p>
+                    <p>A musical adventure with all your favorite animals!</p>
                 </div>
             </div>
         </section>
